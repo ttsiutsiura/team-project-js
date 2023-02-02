@@ -94,9 +94,9 @@ input {
   margin-left: auto;
   margin-right: auto;
 }
-@media screen and (min-width: 480px) {
+@media screen and (max-width: 767px) {
   .header {
-    width: 480px;
+    max-width: 480px;
     padding: 40px 20px 44px 20px;
     height: 230px;
   }
@@ -116,7 +116,7 @@ input {
   }
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (max-width: 767px) {
   .header-home {
     background-image: url(../images/home/hom-bcg-img_s-@1x.png);
   }
@@ -129,6 +129,22 @@ input {
 @media screen and (min-width: 1280px) {
   .header-home {
     background-image: url(../images/home/hom-bcg-img_l-@1x.png);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header-library {
+    background-image: url(../images/library/lib-bcg-img_s-@1x.png);
+  }
+}
+@media screen and (min-width: 768px) {
+  .header-library {
+    background-image: url(../images/library/lib-bcg-img_m-@1x.png);
+  }
+}
+@media screen and (min-width: 1280px) {
+  .header-library {
+    background-image: url(../images/library/lib-bcg-img_l-@1x.png);
   }
 }
 
@@ -166,16 +182,16 @@ input {
   font-size: 12px;
   line-height: 1.1666666667;
   letter-spacing: 0.02em;
-  color: white;
+  color: #ffffff;
   text-decoration: none;
   transition-property: color;
-  transition-duration: 250ms;
+  transition-timing-function: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-nav__link:hover, .header-nav__link--active:hover, .header-nav__link:focus, .header-nav__link--active:focus {
-  color: tomato;
+  color: #ff001b;
 }
 .header-nav__link--active {
-  color: white;
+  color: #ffffff;
 }
 .header-nav__link--active::after {
   content: "";
@@ -189,19 +205,19 @@ input {
   transition-property: background-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  background-color: tomato;
+  background-color: #ff001b;
 }
 
 .logo {
   text-decoration: none;
-  color: white;
-  stroke: white;
+  color: #ffffff;
+  stroke: #ffffff;
   display: flex;
   align-items: center;
 }
 .logo:hover, .logo:focus {
-  color: tomato;
-  stroke: tomato;
+  color: #ff001b;
+  stroke: #ff001b;
 }
 
 .logo__icon {
@@ -214,6 +230,11 @@ input {
   font-weight: 500;
   font-size: 30px;
   line-height: 1.1666666667;
+}
+@media screen and (max-width: 767px) {
+  .logo__text {
+    display: none;
+  }
 }
 
 .search-button__icon {
