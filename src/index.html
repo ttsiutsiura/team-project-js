@@ -23,13 +23,12 @@
     <include src="./partials/footer.html"></include>
     <!-- <include src="./partials/modal/dev-modal.html"></include> -->
 
-    <div class="backdrop overlay data-modal ">
-      <div class="film-modal " >
+    <div class="backdrop overlay data-modal">
+      <div class="film-modal">
         <!-- знопка закритя -->
         <button class="film-modal__btn-icon" type="button">
-          <svg class="film-modal__btn-icon-close" width="18" height="18">
+          <svg class="film-modal__btn-icon-close" width="20" height="20">
             <use href="/src/images/icons.svg#icon-close"></use>
-              </svg>
           </svg>
         </button>
         <!-- картинка -->
@@ -60,7 +59,9 @@
                 <td class="film-modal__cell film-modal__modal-text">
                   Popularity
                 </td>
-                <td class="film-modal__cell film-modal__modal-text--popularity">856.8</td>
+                <td class="film-modal__cell film-modal__modal-text--popularity">
+                  856.8
+                </td>
               </tr>
 
               <tr>
@@ -90,20 +91,12 @@
           <!-- кнопки -->
           <ul class="film-modal__btn-list">
             <li class="film-modal__btn-item">
-              <button
-                class="modal__btn"
-                type=""
-                data-action="watch"
-              >
+              <button class="modal__btn" type="" data-action="watch">
                 ADD TO WATCHED
               </button>
             </li>
             <li class="film-modal__btn-item">
-              <button
-                class="modal__btn"
-                type=""
-                data-action="queue"
-              >
+              <button class="modal__btn" type="" data-action="queue">
                 ADD TO QUEUE
               </button>
             </li>
@@ -115,5 +108,3 @@
     <script type="module" src="./index.js"></script>
   </body>
 </html>
-
-
