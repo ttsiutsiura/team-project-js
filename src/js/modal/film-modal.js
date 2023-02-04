@@ -39,17 +39,22 @@ export function renderMovieCard(movie) {
   console.log(renderMovieCard)
 }
 
-export function movieCardTemplate({
+
+
+ function renderMovieInfo({
   poster_path,
   title,
-  vote_average,
-  vote_count,
-  original_title,
+  genres,
   popularity,
-  genre_ids,
+  vote_count,
+  vote_average,
+  original_title,
   overview,
-
 }) {
+  const genresString = genres.map(genre => genre.name).join(', ');
+  const IMGURL = 'https://image.tmdb.org/t/p/w500/';
+
+ } {
     return `
   
 
@@ -66,7 +71,9 @@ export function movieCardTemplate({
               Vote / Votes
             </td>
             <td class="film-modal__cell film-modal__modal-text">
-              <span class="film-modal__span film-modal__span-vote">${vote_average}</span> "
+              <span class="film-modal__span film-modal__span-vote">${vote_average.toFixed(
+              1
+            )}</span> "
               / "
               <span class="film-modal__span film-modal__span--votes">${vote_count}</span>
             </td>
@@ -74,7 +81,7 @@ export function movieCardTemplate({
 
           <tr>
             <td class="film-modal__cell film-modal__modal-text">Popularity</td>
-            <td class="film-modal__cell film-modal__modal-text">${popularity}</td>
+            <td class="film-modal__cell film-modal__modal-text">${popularity.toFixed(1)}</td>
           </tr>
 
           <tr>
@@ -120,3 +127,4 @@ export function movieCardTemplate({
  `;
 }
 
+export { renderMovieInfo };
