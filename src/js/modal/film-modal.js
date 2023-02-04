@@ -6,20 +6,60 @@ export { renderMovieCard };
   
 // відкриття модального вікна
   
-document.getElementById('btnOpen').onClick = function open() {
-  console.log("open");
-  const a = document.getElementById("modal");
-  a.style.display = "visibility";
-}
+// document.getElementById('btnOpen').onClick = function open() {
+//   console.log("open");
+//   const a = document.getElementById("modal");
+//   a.style.display = "visibility";
+// }
   
   
-// закриття модального вікна  
-document.getElementById('btnClose').onclick = function close() {
-console.log("close");
-const x = document.getElementById("modal");
-x.style.display = "none";
-}
+// закриття модального вікна
+// document.getElementById('btnClose').onclick = function close() {
+// console.log("close");
+// const x = document.getElementById("modal");
+// x.style.display = "none";
+// }
 
+  
+  
+  
+  
+  // Close modal
+function closeModal(e) {
+  // Keyboard event
+  // prettier-ignore
+  if (e.type === "keydown") {
+    // Not escape
+    if (e.keyCode !== 27) {
+      return;
+    }
+  } else
+    // Mouse event
+        
+    // not backdrops
+    if (!e.target.classList.contains("backdrop") && !e.target.classList.contains("backdrop__trailer"))
+      // if closest elem target is not button = false -> check contains class
+      if (e.target.closest("button") === null || !e.target.closest("button").classList.contains("modal-detail__close-button")) return;
+
+  // If trailer is open
+  if (checkStatusTrailer()) {
+    // If opened trailer video - close it
+    closeTrailerWindow();
+    return;
+  }
+
+  // Toggle hidden class
+  refs.modalDetailOverlay.classList.toggle("is-hidden");
+
+  // Show scroll on body
+  scrollableBody(true);
+
+  // Deattach keyboard and mouse events
+  refs.modalDetailOverlay.removeEventListener("click", closeModal);
+  document.removeEventListener("keydown", closeModal);
+}
+  
+  
 
 const gallery = document.querySelector('.film-modal');
 console.log('gallery', gallery);
