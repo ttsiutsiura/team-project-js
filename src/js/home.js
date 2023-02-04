@@ -42,7 +42,7 @@ function renderMovieRatingPage(result) {
         }
       }
       return `
-            <li class="films__card">
+            <li class="films__card" data-modal-p id="btnOpen">
   <img class="films__img" src="${IMGURL}${poster_path}" alt="${title}" loading="lazy" />
   <div class="films__desc">
     <h3 class="films__title">${title}</h3>

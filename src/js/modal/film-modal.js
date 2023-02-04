@@ -1,44 +1,54 @@
 import movieCardTemplate from '/src/index';
+// import '/src/modal/_film-modal.scss';
 
-// (() => {
-//   const refs = {
-//     openModalBtn: document.querySelector('[data-modal-open-p]'),
-//     closeModalBtn: document.querySelector('[data-modal-close-p]'),
-//     modal: document.querySelector('[data-modal-p]'),
-//   };
-
-//   refs.openModalBtn.addEventListener('click', toggleModal);
-//   refs.closeModalBtn.addEventListener('click', toggleModal);
-
-//   function toggleModal() {
-//     refs.modal.classList.toggle('is-hidden');
-//     document.body.classList.toggle('modal-open');
-//   }
-// })();
-
+export { renderMovieInfo };
+export { renderMovieCard };
+  
+// відкриття модального вікна
+  
+document.getElementById('btnOpen').onClick = function open() {
+  console.log("open");
+  const a = document.getElementById("modal");
+  a.style.display = "visibility";
+}
+  
+  
+// закриття модального вікна  
+document.getElementById('btnClose').onclick = function close() {
+console.log("close");
+const x = document.getElementById("modal");
+x.style.display = "none";
+}
 
 
 const gallery = document.querySelector('.film-modal');
 console.log('gallery', gallery);
+const modalCard = document.querySelector('.film-modal__thumb');
+let poster_path = '';
+
+renderMovieCard();
+renderMovieInfo();
+
 const IMGURL = 'https://image.tmdb.org/t/p/w500/';
 // const noPosterImg = noPosterImage;
 
-export function renderMovieCard(movie) {
-  modal.innerHTML = '';
+function renderMovieCard(movie) {
 
-  if (movie.poster_path === null) {
-    IMGURL = '';
   
-  } else {
-    IMGURL = 'https://image.tmdb.org/t/p/w500/';
+  // modalCard.innerHTML = '';
+
+  if (movie === poster_path) {
+    IMGURL = '';
+    } else {
+    //  IMGURL = 'https://image.tmdb.org/t/p/w500/';
+    console.log(error)
   }
 
-  movieModal = movieCardTemplate(movie);
+  modalCard = movieCardTemplate(movie);
 
-  modal.insertAdjacentHTML('beforeend', movieModal);
-  console.log(renderMovieCard)
+  modalCard.insertAdjacentHTML('beforeend', movieModal);
+  console.log(modalCard.innerHTML)
 }
-
 
 
  function renderMovieInfo({
@@ -57,7 +67,6 @@ export function renderMovieCard(movie) {
  } {
     return `
   
-
 <div class="film-modal__thumb">
       <img class="film-modal__img" src="${IMGURL}${poster_path}" alt="" />
     </div>
@@ -94,7 +103,7 @@ export function renderMovieCard(movie) {
           <tr>
             <td class="film-modal__cell film-modal__modal-text">Genre</td>
             <td class="film-modal__cell film-modal__modal-text">
-              ${genre_ids}
+              ${genresString}
             </td>
           </tr>
         </tbody>
@@ -122,9 +131,5 @@ export function renderMovieCard(movie) {
         </li>
       </ul>
     </div>
-  </div>
-
- `;
+  </div>`;
 }
-
-export { renderMovieInfo };
